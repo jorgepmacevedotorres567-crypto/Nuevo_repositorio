@@ -1,0 +1,882 @@
+/* ================================
+   CONTENEDOR PRINCIPAL DE LA APP
+   ================================ */
+.app-container {
+  display: flex;                 /* Distribuye los paneles (sidebar, contenido, panel derecho) en línea */
+  height: 100vh;                 /* Ocupa toda la altura de la pantalla */
+  background: #181818;           /* Fondo oscuro estilo Spotify */
+  color: #fff;                   /* Texto en color blanco */
+  font-family: 'Montserrat', sans-serif; /* Fuente moderna y legible */
+}
+
+/* ================================
+   BARRA LATERAL IZQUIERDA (SIDEBAR)
+   ================================ */
+.sidebar {
+  width: 250px;                  /* Ancho fijo del panel lateral */
+  background: #121212;           /* Color más oscuro que el fondo general */
+  padding: 20px;                 /* Espaciado interno */
+  display: flex;
+  flex-direction: column;        /* Organiza los elementos en columna */
+}
+
+/* Botón de agregar nueva lista o contenido */
+.add-btn {
+  background: #1db954;           /* Verde característico de Spotify */
+  color: #fff;
+  border: none;
+  border-radius: 50%;            /* Forma circular */
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Botones de categorías dentro del sidebar (Playlists, Podcasts, Álbumes) */
+.sidebar-menu button {
+  background: none;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* Barra de búsqueda en la biblioteca */
+.search-bar {
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* Lista de la biblioteca del usuario */
+.library-list {
+  list-style: none;              /* Sin viñetas */
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada elemento de la lista de biblioteca */
+.library-list li {
+  margin: 8px 0;
+  cursor: pointer;               /* Cambia el cursor al pasar sobre el elemento */
+}
+
+/* Estilo especial para la lista “Tus me gusta” */
+.playlist {
+  color: #1db954;                /* Verde distintivo */
+}
+
+/* ================================
+   CONTENIDO PRINCIPAL
+   ================================ */
+.main-content {
+  flex: 1;                       /* Ocupa todo el espacio disponible */
+  padding: 20px;
+  background: #181818;
+}
+
+/* Banner de anuncios o promoción */
+.banner {
+  background: #222;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Título del banner */
+.banner-text h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+/* Subtítulo del banner */
+.banner-text p {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Botón de pre-guardado o acción en el banner */
+.pre-save {
+  background: #1db954;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+/* ================================
+   BOTONES DE CATEGORÍAS / TABS
+   ================================ */
+.tabs button {
+  background: #333;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* ================================
+   SECCIÓN DE ACCESOS RÁPIDOS
+   ================================ */
+.quick-access button {
+  background: #222;
+  color: #fff;
+  border: none;
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* ================================
+   SECCIÓN DE MIXES PERSONALIZADOS
+   ================================ */
+.mixes {
+  display: flex;
+  gap: 16px;                     /* Espacio entre cada mix */
+  margin-top: 20px;
+}
+
+.mix {
+  background: #333;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* ================================
+   PANEL DERECHO (INFORMACIÓN DEL ARTISTA Y VIDEOS)
+   ================================ */
+.right-panel {
+  width: 300px;
+  background: #121212;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo de los videos relacionados */
+.related-videos .video {
+  background: #222;
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* Botón “Acerca del artista” */
+.artist-info {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* ================================
+   BARRA DE REPRODUCCIÓN INFERIOR
+   ================================ */
+.player-bar {
+  position: fixed;               /* Fijada al fondo de la ventana */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #282828;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+/* Canción actual en reproducción */
+.current-song {
+  flex: 1;
+}
+
+/* Botones de control (anterior, reproducir, siguiente) */
+.controls button {
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  margin: 0 8px;
+}
+
+/* Barra de progreso de la canción */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Deslizador de progreso */
+input[type="range"] {
+  width: 120px;
+}
+
+/* ================================
+   IMÁGENES Y EFECTOS DE HOVER
+   ================================ */
+.song-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;            /* Bordes redondeados */
+  margin-right: 8px;
+  object-fit: cover;             /* Ajusta la imagen sin deformarla */
+  vertical-align: middle;
+}
+
+/* Contenedor para agrupar imagen y botón de reproducir */
+.img-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Efecto visual al pasar el mouse sobre una imagen */
+.song-img.img-hover {
+  opacity: 0.5;                  /* Hace la imagen más tenue */
+  transition: opacity 0.2s;
+}
+
+/* Botón circular de reproducir que aparece al hacer hover */
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el botón sobre la imagen */
+  background: #1db954;
+  color: #fff;
+  border: none;
+  border-radius: 50%;            /* Forma circular */
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+/* ================================
+   EFECTOS DE INTERACCIÓN (HOVER)
+   ================================ */
+
+/* Efecto de sombreado al pasar sobre elementos interactivos */
+.library-list li:hover,
+.mix:hover,
+.related-videos .video:hover,
+.quick-access button:hover,
+.artist-info:hover,
+.pre-save:hover,
+.tabs button:hover {
+  background: #232323;           /* Color más claro para resaltar el hover */
+  transition: background 0.2s;
+}
+
+/* Hover de los botones de menú en el sidebar */
+.sidebar-menu button:hover {
+  background: #232323;
+  color: #1db954;                /* Cambia a verde al pasar el mouse */
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Hover del botón “+” (Agregar) */
+.add-btn:hover {
+  background: #17a34a;           /* Verde más brillante */
+  box-shadow: 0 2px 8px rgba(29,185,84,0.2); /* Efecto de brillo */
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+/* Hover de los botones de control del reproductor */
+.controls button:hover {
+  color: #1db954;
+  background: #232323;
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+}
+
+/* Hover del botón de reproducir dentro de las imágenes */
+.play-btn:hover {
+  background: #17a34a;           /* Verde brillante */
+  box-shadow: 0 4px 12px rgba(29,185,84,0.3);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+@media (max-width: 1200px) {
+  .right-panel {
+    display: none;               /* Oculta el panel derecho en pantallas pequeñas */
+  }
+}
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;                /* Reduce el ancho del sidebar */
+  }
+  .app-container {
+    flex-direction: column;      /* Cambia a disposición en columna */
+  }
+  .main-content {
+    padding: 10px;               /* Reduce el padding */
+  }
+  .player-bar {
+    padding: 10px 20px;          /* Reduce el padding */
+  }
+  .progress-bar input[type="range"] {
+    width: 80px;                 /* Reduce el ancho del deslizador */
+  }
+}
+
+/* Estilos para la página de loading */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #181818;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* Estilos para el header de home */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.home-header h1 {
+  font-size: 32px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-name {
+  color: #1db954;
+  font-weight: bold;
+}
+
+.btn-logout {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-logout:hover {
+  background: #cc0000;
+}
+
+.btn-create-playlist {
+  background: #1db954;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background 0.3s;
+}
+
+.btn-create-playlist:hover {
+  background: #17a34a;
+}
+
+.playlists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.playlist-card {
+  background: #282828;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  padding: 10px;
+}
+
+.playlist-card:hover {
+  transform: scale(1.05);
+}
+
+.playlist-image {
+  width: 100%;
+  height: 150px;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.no-image {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+}
+
+.playlist-card h3 {
+  padding: 10px 0;
+  margin: 0;
+}
+
+.playlist-card p {
+  color: #bbb;
+  margin: 5px 0;
+}
+
+.btn-delete {
+  width: 100%;
+  padding: 8px;
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-delete:hover {
+  background: #cc0000;
+}
+
+.no-playlists {
+  text-align: center;
+  color: #bbb;
+  padding: 40px 20px;
+}
+
+/* Estilos para el modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #282828;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #181818;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 12px;
+  background: #1db954;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: #17a34a;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 12px;
+  background: #555;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #666;
+}
+
+/* Estilos para PlaylistDetail */
+.playlist-detail-container {
+  background: #181818;
+  color: #fff;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.btn-back {
+  background: #1db954;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+.btn-back:hover {
+  background: #17a34a;
+}
+
+.playlist-detail-container h1 {
+  font-size: 36px;
+  margin: 20px 0;
+}
+
+.btn-add-song {
+  background: #1db954;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background 0.3s;
+}
+
+.btn-add-song:hover {
+  background: #17a34a;
+}
+
+.songs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.song-item {
+  background: #282828;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  transition: background 0.3s;
+}
+
+.song-item:hover {
+  background: #333;
+}
+
+.song-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.song-info {
+  flex: 1;
+}
+
+.song-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.song-info p {
+  margin: 0 0 5px 0;
+  color: #bbb;
+}
+
+.song-info span {
+  color: #999;
+  font-size: 14px;
+}
+
+.btn-remove-song {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.btn-remove-song:hover {
+  background: #cc0000;
+}
+
+.no-songs {
+  text-align: center;
+  color: #bbb;
+  padding: 40px 20px;
+}
+
+/* Estilos Auth */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1db954 0%, #0f0f0f 100%);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.auth-box {
+  background: #121212;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.auth-box h1 {
+  color: #1db954;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+.auth-box h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-box input {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #282828;
+  color: #fff;
+  font-size: 14px;
+}
+
+.auth-box input::placeholder {
+  color: #999;
+}
+
+.auth-box input:focus {
+  outline: none;
+  background: #333;
+  box-shadow: 0 0 0 2px #1db954;
+}
+
+.auth-box p {
+  text-align: center;
+  color: #bbb;
+  margin-top: 15px;
+}
+
+.auth-box a {
+  color: #1db954;
+  text-decoration: none;
+}
+
+.auth-box a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  background: #ff4444;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ================================
+   Playlist form / upload
+   ================================ */
+.playlist-form {
+  background: #121212;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 20px auto;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.playlist-form h2 {
+  margin-top: 0;
+  color: #1db954;
+}
+
+.playlist-form .form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.playlist-form input[type="text"],
+.playlist-form input[type="url"],
+.playlist-form input[type="file"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #181818;
+  color: #fff;
+}
+
+.playlist-form .controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.playlist-form .btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.playlist-form .btn-primary {
+  background: #1db954;
+  color: #fff;
+}
+
+.playlist-form .btn-secondary {
+  background: #444;
+  color: #fff;
+}
+
+/* preview */
+.image-preview {
+  width: 140px;
+  height: 140px;
+  background: #222;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #2b2b2b;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* small helper text */
+.help {
+  color: #bbb;
+  font-size: 13px;
+}
+
+/* option switch */
+.input-option {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.input-option label {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* Top menu avatar button y dropdown */
+.topmenu-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topmenu-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: linear-gradient(180deg,#222,#111);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 13px;
+}
+
+.topmenu-dropdown {
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  min-width: 140px;
+}
+
+.topmenu-item {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #ddd;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.topmenu-item:hover {
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+}

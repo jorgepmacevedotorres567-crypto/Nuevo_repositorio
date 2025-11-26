@@ -1,0 +1,199 @@
+.playlist-detail-container {
+  background: #181818;
+  color: #fff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-back {
+  background: #1db954;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+.btn-back:hover {
+  background: #17a34a;
+}
+
+.playlist-detail-container h1 {
+  font-size: 36px;
+  margin: 20px 0;
+}
+
+.btn-add-song {
+  background: #1db954;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background 0.3s;
+}
+
+.btn-add-song:hover {
+  background: #17a34a;
+}
+
+.songs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.song-item {
+  background: #282828;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  transition: background 0.3s;
+}
+
+.song-item:hover {
+  background: #333;
+}
+
+.song-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.song-info {
+  flex: 1;
+}
+
+.song-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.song-info p {
+  margin: 0 0 5px 0;
+  color: #bbb;
+}
+
+.song-info span {
+  color: #999;
+  font-size: 14px;
+}
+
+.btn-remove-song {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.btn-remove-song:hover {
+  background: #cc0000;
+}
+
+.no-songs {
+  text-align: center;
+  color: #bbb;
+  padding: 40px 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #282828;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #181818;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.modal-content input::placeholder {
+  color: #999;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-content .btn-primary {
+  flex: 1;
+  padding: 12px;
+  background: #1db954;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.modal-content .btn-primary:hover {
+  background: #17a34a;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 12px;
+  background: #555;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #666;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #181818;
+  color: #fff;
+  font-size: 18px;
+}
